@@ -4,6 +4,9 @@
  */
 package com.mycompany.ex1p2_germanfigueroa;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gafm2
@@ -42,13 +45,15 @@ public class Proyecto extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         btn_agregarEntrenador = new javax.swing.JButton();
         lbl_nombre = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
         lbl_edad = new javax.swing.JLabel();
         sp_edad = new javax.swing.JSpinner();
         lbl_dinero = new javax.swing.JLabel();
         sp_dinero = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txt_equipo = new javax.swing.JTextField();
+        btn_verEntrenadores = new javax.swing.JButton();
+        btn_editarEntrenador = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -138,36 +143,55 @@ public class Proyecto extends javax.swing.JFrame {
 
         jLabel2.setText("Equipo");
 
+        btn_verEntrenadores.setText("Ver");
+        btn_verEntrenadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_verEntrenadoresMouseClicked(evt);
+            }
+        });
+
+        btn_editarEntrenador.setText("Editar");
+        btn_editarEntrenador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_editarEntrenadorMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane2)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lbl_nombre)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lbl_edad)
+                            .addGap(18, 18, 18)
+                            .addComponent(sp_edad))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lbl_dinero)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(sp_dinero))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txt_equipo)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(btn_agregarEntrenador))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_nombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_edad)
-                        .addGap(18, 18, 18)
-                        .addComponent(sp_edad))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_dinero)
+                        .addComponent(btn_agregarEntrenador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sp_dinero))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2)))
+                        .addComponent(btn_verEntrenadores)
+                        .addGap(12, 12, 12)
+                        .addComponent(btn_editarEntrenador)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,7 +201,7 @@ public class Proyecto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nombre)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_edad)
@@ -189,9 +213,12 @@ public class Proyecto extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(btn_agregarEntrenador)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_agregarEntrenador)
+                    .addComponent(btn_verEntrenadores)
+                    .addComponent(btn_editarEntrenador))
                 .addContainerGap())
         );
 
@@ -296,8 +323,37 @@ public class Proyecto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_agregarEntrenadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarEntrenadorMouseClicked
-        
+        String nombre = txt_nombre.getText();
+        int edad = (int) sp_edad.getValue();
+        int dinero = (int) sp_dinero.getValue();
+        String equipo = txt_equipo.getText();
+        JOptionPane.showInputDialog(", Nombre: " + nombre + ", Edad: " + edad + ", Dinero: " + dinero + ", Equipo: " +equipo);
+       
     }//GEN-LAST:event_btn_agregarEntrenadorMouseClicked
+
+    private void btn_verEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_verEntrenadoresMouseClicked
+        ArrayList<Entrenador> entrenadores = new ArrayList<>();
+        if(entrenadores.isEmpty()){
+            JOptionPane.showInputDialog("No se registraron entrenadores");
+            return;
+        }else{
+            for(int i = 0; i < entrenadores.size(); i++){
+                JOptionPane.showInputDialog("Entrenador #: " +(i+1));
+            
+        }
+        
+        }
+    }//GEN-LAST:event_btn_verEntrenadoresMouseClicked
+
+    private void btn_editarEntrenadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarEntrenadorMouseClicked
+        ArrayList<Entrenador> entrenadores = new ArrayList<>();
+        if(entrenadores.isEmpty()){
+            JOptionPane.showInputDialog("No se registraron entrenadores");
+            return;
+        }
+        JOptionPane.showInputDialog("Seleccione un entrenador para modificar: ");
+        
+    }//GEN-LAST:event_btn_editarEntrenadorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -326,6 +382,8 @@ public class Proyecto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregarEntrenador;
+    private javax.swing.JButton btn_editarEntrenador;
+    private javax.swing.JButton btn_verEntrenadores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -346,12 +404,12 @@ public class Proyecto extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lbl_dinero;
     private javax.swing.JLabel lbl_edad;
     private javax.swing.JLabel lbl_nombre;
     private javax.swing.JSpinner sp_dinero;
     private javax.swing.JSpinner sp_edad;
+    private javax.swing.JTextField txt_equipo;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 }
