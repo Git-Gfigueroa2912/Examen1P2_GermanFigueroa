@@ -12,9 +12,9 @@ public class Entrenador {
     String nombre;
     int edad; 
     int dinero;
-    int equipo;
+    String equipo;
 
-    public Entrenador(String nombre, int edad, int dinero, int equipo) {
+    public Entrenador(String nombre, int edad, int dinero, String equipo) {
         this.nombre = nombre;
         this.edad = edad;
         this.dinero = dinero;
@@ -33,7 +33,7 @@ public class Entrenador {
         return dinero;
     }
 
-    public int getEquipo() {
+    public String getEquipo() {
         return equipo;
     }
 
@@ -49,7 +49,7 @@ public class Entrenador {
         this.dinero = dinero;
     }
 
-    public void setEquipo(int equipo) {
+    public void setEquipo(String equipo) {
         this.equipo = equipo;
     }
 

@@ -36,6 +36,7 @@ public class Proyecto extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jLabel1 = new javax.swing.JLabel();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -54,12 +55,32 @@ public class Proyecto extends javax.swing.JFrame {
         txt_equipo = new javax.swing.JTextField();
         btn_verEntrenadores = new javax.swing.JButton();
         btn_editarEntrenador = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
+        lbl_especie = new javax.swing.JLabel();
+        txt_especie = new javax.swing.JTextField();
+        lbl_apodo = new javax.swing.JLabel();
+        txt_apodo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_estado = new javax.swing.JTextField();
+        btn_agregarPokemon = new javax.swing.JButton();
+        btn_verPokemon = new javax.swing.JButton();
+        btn_editarPokemon = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jTabbedPane5 = new javax.swing.JTabbedPane();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        txt_nombreMovimiento = new javax.swing.JTextField();
+        lbl_descripcion = new javax.swing.JLabel();
+        txt_descripcion = new javax.swing.JTextField();
+        lbl_tipo = new javax.swing.JLabel();
+        txt_tipo = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         jMenu1.setText("File");
@@ -69,6 +90,8 @@ public class Proyecto extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jLabel1.setText("jLabel1");
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,6 +178,16 @@ public class Proyecto extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_editarEntrenadorMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_editarEntrenadorMouseEntered(evt);
+            }
+        });
+
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminarMouseClicked(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -191,7 +224,9 @@ public class Proyecto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_verEntrenadores)
                         .addGap(12, 12, 12)
-                        .addComponent(btn_editarEntrenador)))
+                        .addComponent(btn_editarEntrenador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_eliminar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,7 +253,8 @@ public class Proyecto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_agregarEntrenador)
                     .addComponent(btn_verEntrenadores)
-                    .addComponent(btn_editarEntrenador))
+                    .addComponent(btn_editarEntrenador)
+                    .addComponent(btn_eliminar))
                 .addContainerGap())
         );
 
@@ -263,32 +299,178 @@ public class Proyecto extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("Editar Pokemon ", jPanel11);
 
+        lbl_especie.setText("Especie");
+
+        lbl_apodo.setText("Apodo");
+
+        jLabel3.setText("Estado");
+
+        btn_agregarPokemon.setText("Agregar");
+        btn_agregarPokemon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarPokemonMouseClicked(evt);
+            }
+        });
+
+        btn_verPokemon.setText("Ver");
+        btn_verPokemon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_verPokemonMouseClicked(evt);
+            }
+        });
+
+        btn_editarPokemon.setText("Editar");
+        btn_editarPokemon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarPokemonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jTabbedPane4)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lbl_especie)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_especie, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lbl_apodo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_apodo)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_agregarPokemon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_verPokemon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_editarPokemon)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 258, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_especie)
+                    .addComponent(txt_especie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_apodo)
+                    .addComponent(txt_apodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_agregarPokemon)
+                    .addComponent(btn_verPokemon)
+                    .addComponent(btn_editarPokemon))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Gestion Pokemon", jPanel2);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+
+        jTabbedPane5.addTab("Agregar Movimiento", jPanel12);
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+
+        jTabbedPane5.addTab("Agregar Movimiento", jPanel13);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 537, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 4, Short.MAX_VALUE)
+        );
+
+        jTabbedPane5.addTab("Ver Movimientos", jPanel14);
+
+        jLabel4.setText("Nombre");
+
+        lbl_descripcion.setText("Descripcion");
+
+        lbl_tipo.setText("Tipo");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 537, Short.MAX_VALUE)
+            .addComponent(jTabbedPane5)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_nombreMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbl_descripcion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_descripcion))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbl_tipo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_tipo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_nombreMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_descripcion)
+                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_tipo)
+                    .addComponent(txt_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestion Movimiento", jPanel3);
@@ -323,26 +505,24 @@ public class Proyecto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_agregarEntrenadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarEntrenadorMouseClicked
+        ArrayList<Entrenador> entrenadores = new ArrayList<>();
         String nombre = txt_nombre.getText();
         int edad = (int) sp_edad.getValue();
         int dinero = (int) sp_dinero.getValue();
         String equipo = txt_equipo.getText();
+        Entrenador Nuevoentrenador = new Entrenador(nombre, edad, dinero, equipo);
+        entrenadores.add(Nuevoentrenador);
         JOptionPane.showInputDialog(", Nombre: " + nombre + ", Edad: " + edad + ", Dinero: " + dinero + ", Equipo: " +equipo);
-       
+        
     }//GEN-LAST:event_btn_agregarEntrenadorMouseClicked
 
     private void btn_verEntrenadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_verEntrenadoresMouseClicked
-        ArrayList<Entrenador> entrenadores = new ArrayList<>();
-        if(entrenadores.isEmpty()){
-            JOptionPane.showInputDialog("No se registraron entrenadores");
-            return;
-        }else{
-            for(int i = 0; i < entrenadores.size(); i++){
-                JOptionPane.showInputDialog("Entrenador #: " +(i+1));
-            
+            ArrayList<Entrenador> entrenadores = new ArrayList<>();
+            for(Entrenador e : entrenadores){
+                JOptionPane.showInputDialog("Todos los entrenadores: " );
         }
         
-        }
+        
     }//GEN-LAST:event_btn_verEntrenadoresMouseClicked
 
     private void btn_editarEntrenadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarEntrenadorMouseClicked
@@ -354,6 +534,39 @@ public class Proyecto extends javax.swing.JFrame {
         JOptionPane.showInputDialog("Seleccione un entrenador para modificar: ");
         
     }//GEN-LAST:event_btn_editarEntrenadorMouseClicked
+
+    private void btn_eliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminarMouseClicked
+        ArrayList<Entrenador> entrenadores = new ArrayList<>();
+        JOptionPane.showInputDialog("Seleccione el entrenador a eliminar");
+        for(Entrenador e : entrenadores){
+            entrenadores.remove(WIDTH);
+        }
+        
+    }//GEN-LAST:event_btn_eliminarMouseClicked
+
+    private void btn_editarEntrenadorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarEntrenadorMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editarEntrenadorMouseEntered
+
+    private void btn_agregarPokemonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarPokemonMouseClicked
+         ArrayList<Pokemon> pokemones = new ArrayList<>();
+         String especie = txt_especie.getText();
+         String apodo = txt_apodo.getText();
+         String estado = txt_estado.getText();
+         Pokemon nuevoPokemon = new Pokemon(especie, apodo, estado);
+         JOptionPane.showInputDialog(" Especie: " + especie + ", Apodo: " + apodo + ", Estado: " +estado);
+    }//GEN-LAST:event_btn_agregarPokemonMouseClicked
+
+    private void btn_editarPokemonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarPokemonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_editarPokemonActionPerformed
+
+    private void btn_verPokemonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_verPokemonMouseClicked
+         ArrayList<Pokemon> pokemones = new ArrayList<>();
+         for(Pokemon p : pokemones){
+             JOptionPane.showInputDialog(p);
+         }
+    }//GEN-LAST:event_btn_verPokemonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -382,16 +595,26 @@ public class Proyecto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregarEntrenador;
+    private javax.swing.JButton btn_agregarPokemon;
     private javax.swing.JButton btn_editarEntrenador;
+    private javax.swing.JButton btn_editarPokemon;
+    private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_verEntrenadores;
+    private javax.swing.JButton btn_verPokemon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -404,12 +627,27 @@ public class Proyecto extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JLabel lbl_apodo;
+    private javax.swing.JLabel lbl_descripcion;
     private javax.swing.JLabel lbl_dinero;
     private javax.swing.JLabel lbl_edad;
+    private javax.swing.JLabel lbl_especie;
     private javax.swing.JLabel lbl_nombre;
+    private javax.swing.JLabel lbl_tipo;
     private javax.swing.JSpinner sp_dinero;
     private javax.swing.JSpinner sp_edad;
+    private javax.swing.JTextField txt_apodo;
+    private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_equipo;
+    private javax.swing.JTextField txt_especie;
+    private javax.swing.JTextField txt_estado;
     private javax.swing.JTextField txt_nombre;
+    private javax.swing.JTextField txt_nombreMovimiento;
+    private javax.swing.JTextField txt_tipo;
     // End of variables declaration//GEN-END:variables
+
+    private String btn_verEntrenadores() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
